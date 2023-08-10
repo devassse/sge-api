@@ -38,14 +38,14 @@ public class CompanyController {
     }
 
     @PutMapping("/company/{id}")
-    public ResponseEntity<Company> update(Company company, @PathVariable int id){
+    public ResponseEntity<?> update(@RequestBody Company company, @PathVariable int id){
         try{
             Company existCompany = companyService.get(id);
-            companyService.save(company);
-            return new ResponseEntity<Company>(HttpStatus.OK);
+            companyService.save(existCompany);
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (NoSuchElementException ex) {
             System.out.println("Error Updating Company With ID " + id);
-            return new ResponseEntity<Company>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 

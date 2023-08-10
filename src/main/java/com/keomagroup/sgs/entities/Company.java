@@ -46,4 +46,14 @@ public class Company {
     public void setLogo(String logo) {
         this.logo = logo;
     }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", slogan='" + slogan + '\'' +
+                ", logo='" + logo + '\'' +
+                '}';
+    }
 }
