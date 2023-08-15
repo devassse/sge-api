@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" version="6.0">
-  <filter>
+  <!--<filter>
     <display-name>CorsFilter</display-name>
     <filter-name>CorsFilter</filter-name>
     <filter-class>com.keomagroup.sgs.filters.CorsFilter</filter-class>
@@ -9,6 +9,57 @@
     <filter-name>CorsFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  -->
+  
+  
+  <filter>
+    <filter-name>CORS</filter-name>
+    <filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>
+
+    <init-param>
+        <param-name>cors.allowGenericHttpRequests</param-name>
+        <param-value>true</param-value>
+    </init-param>
+
+    <init-param>
+        <param-name>cors.allowOrigin</param-name>
+        <param-value>*</param-value>
+    </init-param>
+
+    <init-param>
+        <param-name>cors.allowSubdomains</param-name>
+        <param-value>false</param-value>
+    </init-param>
+
+    <init-param>
+        <param-name>cors.supportedMethods</param-name>
+        <param-value>GET, HEAD, POST, DELETE, OPTIONS</param-value>
+    </init-param>
+
+    <init-param>
+        <param-name>cors.supportedHeaders</param-name>
+        <param-value>*</param-value>
+    </init-param>
+
+    <init-param>
+        <param-name>cors.supportsCredentials</param-name>
+        <param-value>true</param-value>
+    </init-param>
+
+    <init-param>
+        <param-name>cors.maxAge</param-name>
+        <param-value>3600</param-value>
+    </init-param>
+
+</filter>
+
+<filter-mapping>
+    <!-- CORS Filter mapping -->
+    <filter-name>CORS</filter-name>
+    <url-pattern>*</url-pattern>
+</filter-mapping>
+  
+  
   <display-name>sge</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
