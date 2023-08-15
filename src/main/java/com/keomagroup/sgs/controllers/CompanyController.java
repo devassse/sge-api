@@ -34,6 +34,9 @@ public class CompanyController {
 
     @PostMapping("/company")
     public void add(@RequestBody Company company) {
+
+        System.out.println("Dados da Empresa" + company);
+
         companyService.save(company);
     }
 

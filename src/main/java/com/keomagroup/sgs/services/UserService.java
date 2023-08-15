@@ -3,11 +3,12 @@ package com.keomagroup.sgs.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.keomagroup.sgs.repositories.UserRepository;
 import com.keomagroup.sgs.entities.Users;
 
-
+@Service
 public class UserService {
 
     @Autowired
