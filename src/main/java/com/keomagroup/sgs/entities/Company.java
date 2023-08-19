@@ -15,7 +15,7 @@ public class Company {
     private String slogan;
     private String description;
     private String logo;
-    
+    private int stars;
     public int getId() {
         return id;
     }
@@ -46,10 +46,16 @@ public class Company {
     public void setLogo(String logo) {
         this.logo = logo;
     }
+    public int getStars() {
+        return stars;
+    }
+    public void setStars(int stars) {
+        this.stars = stars;
+    }
     @Override
     public String toString() {
         return "Company [id=" + id + ", name=" + name + ", slogan=" + slogan + ", description=" + description
-                + ", logo=" + logo + "]";
+                + ", logo=" + logo + ", stars=" + stars + "]";
     }
     
 }

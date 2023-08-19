@@ -34,17 +34,13 @@ public class CompanyController {
 
     @PostMapping("/company")
     public void add(@RequestBody Company company) {
-
-        System.out.println("Dados da Empresa" + company);
-
         companyService.save(company);
     }
 
     @PutMapping("/company/{id}")
     public ResponseEntity<?> update(@RequestBody Company company, @PathVariable int id){
         try{
-            Company existCompany = companyService.get(id);
-            companyService.save(existCompany);
+            companyService.save(company);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (NoSuchElementException ex) {
             System.out.println("Error Updating Company With ID " + id);

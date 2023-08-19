@@ -18,7 +18,11 @@ public class SgsApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/*").allowedOrigins("http://localhost:9000");
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:9000")
+                        .allowedMethods("GET", "POST", "PATCH", "PUT", "DELETE")
+                        .allowedHeaders("Content-Type")
+                        .allowCredentials(true);
             }
         };
     }
